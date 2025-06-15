@@ -1,0 +1,62 @@
+.cartBlock {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+}
+
+.cartCards {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.cartCardContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.cartCard {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    background: white;
+    width: 80%;
+    padding: 3% 2% 3% 2%;
+    border-radius: 10px;
+}
+
+.finalPrice {
+    background: white;
+    border-radius: 10px;
+    width: 30%;
+}
+
+
+.cartDeleteBtn {
+    width: 15%;
+    background: black;
+    color: white;
+    font-weight: 600;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5% 0;
+    border: none;
+    border-radius: 15px;
+}
+
+.cartNumber {
+    width: 10%;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 4%;
+    border: 1px solid rgb(203, 202, 202);
+    border-radius: 14px;
+}

@@ -122,6 +122,16 @@ body, html {
     width: 10%;
 }
 
+.authBtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    width: 10%;
+}
+
 .actionIcon-btn {
     display: flex;
     justify-content: space-between;
@@ -130,11 +140,19 @@ body, html {
     border: none;
     background: #f4f4f4;
     color: black;
-    width: 35%;
+    width: 87%;
 }
 
 .header-icon {
     width: 80%;
+    opacity: 0.7;
+}
+
+
+.header-icon-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
     opacity: 0.7;
 }
 

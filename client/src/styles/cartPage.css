@@ -1,0 +1,16 @@
+.cartPage {
+    background: #f4f4f4;
+    height: 100vh;
+}
+
+.cartPageContent {
+    padding-top: 8%;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.cartPageContent h2 {
+    font-size: 35px;
+    font-weight: 600;
+    padding-bottom: 5%;
+}

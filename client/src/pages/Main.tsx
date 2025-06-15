@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import appleWatch from '../images/appleWatch.png'
 import iPhoneMain from '../images/iPhone.png';
 import airMax from '../images/airMax.png';
@@ -8,6 +8,10 @@ import whiteWatch from '../images/whiteWatch.png';
 import heartIcon from "../../public/heart.png";
 import cartIcon from "../../public/cart.png"
 import './Main.css';
+import iMac from "../images/iMac.png";
+import accessories from "../images/accessories.png"
+
+
 
 const slides = [
   {
@@ -55,13 +59,82 @@ const cards = [
     title: 'Apple Watch Ultra',
     p: "$65.00 USD"
   }
-]
+];
+
+const popularCards = [
+  {
+    img: airMax,
+    p: "xsccdfhj"
+  },
+  {
+    img: airMax,
+    p: "xscdfhjx"
+  },
+  {
+    img: airMax,
+    p: "xfhjjx"
+  },
+  {
+    img: airMax,
+    p: "xshjx"
+  },
+  {
+    img: airMax,
+    p: "xshjx"
+  },
+  {
+    img: airMax,
+    p: "xshjx"
+  },
+  {
+    img: airMax,
+    p: "xshjx"
+  }
+];
 
 const Main: React.FC = () => {
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const [showLeft, setShowLeft] = useState(false);
+  const [showRight, setShowRight] = useState(true);
+
   const [current, setCurrent] = useState(0);
   const [prev, setPrev] = useState<number | null>(null);
   const [animating, setAnimating] = useState(false);
   const [activeClass, setActiveClass] = useState(false);
+
+  const scrollLeft = () => {
+    sliderRef.current?.scrollBy({ left: -900, behavior: "smooth" });
+  };
+  
+  const scrollRight = () => {
+    sliderRef.current?.scrollBy({ left: 900, behavior: "smooth" });
+  };
+  
+
+  const handleScroll = () => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    const { scrollLeft, scrollWidth, clientWidth } = slider;
+
+    setShowLeft(scrollLeft > 0);
+    setShowRight(scrollLeft + clientWidth < scrollWidth - 1);
+  };
+  useEffect(() => {
+    handleScroll();
+    const slider = sliderRef.current;
+    if (slider) {
+      slider.addEventListener("scroll", handleScroll);
+    }
+  
+    return () => {
+      if (slider) {
+        slider.removeEventListener("scroll", handleScroll);
+      }
+    };
+  }, []);
+  
+
 
   const changeSlide = (index: number) => {
     if (index === current || animating) return;
@@ -145,15 +218,15 @@ const Main: React.FC = () => {
                   <img src={card.img} alt={`Product ${idx + 1}`} className="main-top-selling-card-img" />
                 </div>
                 <div className="main-top-selling-card-buttons">
-                  <button className="main-top-selling-card-button">
+                  <a href="" className="main-top-selling-card-button">
                     ...
-                  </button>
-                  <button className="main-top-selling-card-button">
-                  <img src={heartIcon} alt="icon" className="main-top-selling-card-button-img" />
-                  </button>
-                  <button className="main-top-selling-card-button">
-                  <img src={cartIcon} alt="icon" className="main-top-selling-card-button-img" />
-                  </button>
+                  </a>
+                  <a href="/favorites" className="main-top-selling-card-button">
+                   <img src={heartIcon} alt="icon" className="main-top-selling-card-button-img" />
+                  </a>
+                  <a href="/cart" className="main-top-selling-card-button">
+                    <img src={cartIcon} alt="icon" className="main-top-selling-card-button-img" />
+                  </a>
                 </div>
               </div>
               <div className="main-top-selling-card-info">
@@ -170,17 +243,41 @@ const Main: React.FC = () => {
             <div className="macAccessoriesBlock">
               <h4>Mac accessories</h4>
               <p>Explore keyboards, mice and other essentials.</p>
-              <button>Buy Mac accessories<span>&gt;</span></button>
-              <img src="" alt="" />
+              <button className="buyMacAccessoriesButton">Buy Mac accessories</button>
+              <img src={accessories} alt="" className="iMacAccessories" />
             </div>
             <div className="macBlock">
               <h4>Studio Display</h4>
               <p>The 27-inch 5K Retina display pairs beautifully with any Mac.</p>
-              <button>Learn more<span>&gt;</span></button>
-              <img src="" alt="" />
+              <button className="buyMacAccessoriesButton">Learn more</button>
+              <img src={iMac} alt="" className="iMacAccessories" />
             </div>
           </div>
       </section>
+      <section className="popular-categories">
+  <h2>Popular Categories</h2>
+  <div className="categories-slider-wrapper">
+    {showLeft && (
+      <button className="slider-btn left" onClick={scrollLeft}>◀</button>
+    )}
+
+    <div className="main-popular-categories-cards" ref={sliderRef} onScroll={handleScroll}>
+      {popularCards.map((popularCard, idx) => (
+        <div className="main-popular-categories-card" key={idx}>
+          <a href="#" className="popular-categories-img">
+            <img src={popularCard.img} alt="" className="popular-categories-img" />
+          </a>
+          <p>{popularCard.p}</p>
+        </div>
+      ))}
+    </div>
+
+    {showRight && (
+      <button className="slider-btn right" onClick={scrollRight}>▶</button>
+    )}
+  </div>
+</section>
+
 
     </main>
   );

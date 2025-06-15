@@ -6,8 +6,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Dashboard from './pages/Dashboard';
 import AdminPanel from './admin/AdminPanel';
-
-
+import CartPage from './pages/CartPage';
+import Favorites from './pages/Favorites';
+import HomePage from './pages/HomePage';
+import { CartProvider } from "./components/CartContext";
+import "./App.css"
 
 
 function App() {
@@ -18,21 +21,23 @@ function App() {
   }
 
   return (
-    <div className="app">
-
-    <BrowserRouter>
-      <Header
-          onMenuClick = {toggleSidebar}
-        />
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/admin" element={<AdminPanel />} />
-      </Routes>
-    </BrowserRouter>
-  
-    </div>
+    <CartProvider>
+      <div className="app">
+        <BrowserRouter>
+          <Header onMenuClick={toggleSidebar} />
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/admin" element={<AdminPanel />} />
+            <Route path="/cartPage" element={<CartPage />} />
+            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/catalog" element={<HomePage />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </CartProvider>
   )
 }
+
 
 export default App;

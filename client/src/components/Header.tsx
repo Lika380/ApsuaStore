@@ -36,7 +36,7 @@ const Header: React.FC<HeaderProps> = () => {
       <nav className="header-nav">
         <div className="header-content">
           <div className="logo">
-            <a href="">ApsuaStore</a>
+            <a href="/">ApsuaStore</a>
           </div>
           <form className="header-search-form" onSubmit={handleSearch}>
             <input
@@ -59,22 +59,22 @@ const Header: React.FC<HeaderProps> = () => {
 
           <div className="headerAction">
             <div className="catalog">
-              <a href="#">Catalog</a>
+              <a href="/catalog">Catalog</a>
             </div>
-            <a href="#" className="actionIcon">
+            <a href="/favorites" className="actionIcon">
               <span className="iconHeart">
                 <img src={heartIcon} alt="icon" className="header-icon" />
               </span>
             </a>
-            <a href="#" className="actionIcon">
+            <a href="/cartPage" className="actionIcon">
               <span className="iconlogin">
                 <img src={cartIcon} alt="icon" className="header-icon" />
               </span>
             </a>
-            <div>
+            <div className="authBtn">
               <button onClick={() => setIsAuthOpen(true)} className="actionIcon-btn">
-                <span className="iconlogin">
-                  <img src={personIcon} alt="icon" className="header-icon" />
+                <span className="iconlogin-btn">
+                  <img src={personIcon} alt="icon" className="header-icon-btn" />
                 </span>
               </button>
               <AuthPage isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
