@@ -9,7 +9,13 @@ import heartIcon from "../../public/heart.png";
 import cartIcon from "../../public/cart.png"
 import './Main.css';
 import iMac from "../images/iMac.png";
-import accessories from "../images/accessories.png"
+import accessories from "../images/accessories.png";
+import TVs from '../images/TVs.png';
+import WashingMachines from '../images/washingMachines.png';
+import refrigerators from '../images/refrigerators.png';
+import tablets from '../images/tablets.png';
+import smartSpeakers from '../images/smartSpeakers.png';
+
 
 
 
@@ -63,32 +69,32 @@ const cards = [
 
 const popularCards = [
   {
-    img: airMax,
-    p: "xsccdfhj"
+    img: iphone16,
+    p: "Smartphones"
   },
   {
-    img: airMax,
-    p: "xscdfhjx"
+    img: macbook,
+    p: "Laptops"
   },
   {
-    img: airMax,
-    p: "xfhjjx"
+    img: smartSpeakers,
+    p: "Smart speakers"
   },
   {
-    img: airMax,
-    p: "xshjx"
+    img: tablets,
+    p: "Tablets"
   },
   {
-    img: airMax,
-    p: "xshjx"
+    img: refrigerators,
+    p: "Refrigerators"
   },
   {
-    img: airMax,
-    p: "xshjx"
+    img: TVs,
+    p: "TVs"
   },
   {
-    img: airMax,
-    p: "xshjx"
+    img: WashingMachines,
+    p: "Washing machines"
   }
 ];
 
@@ -255,28 +261,28 @@ const Main: React.FC = () => {
           </div>
       </section>
       <section className="popular-categories">
-  <h2>Popular Categories</h2>
-  <div className="categories-slider-wrapper">
-    {showLeft && (
-      <button className="slider-btn left" onClick={scrollLeft}>◀</button>
-    )}
+        <h2>Popular Categories</h2>
+        <div className="categories-slider-wrapper">
+          {showLeft && (
+            <button className="slider-btn left" onClick={scrollLeft}>◀</button>
+          )}
 
-    <div className="main-popular-categories-cards" ref={sliderRef} onScroll={handleScroll}>
-      {popularCards.map((popularCard, idx) => (
-        <div className="main-popular-categories-card" key={idx}>
-          <a href="#" className="popular-categories-img">
-            <img src={popularCard.img} alt="" className="popular-categories-img" />
-          </a>
-          <p>{popularCard.p}</p>
+          <div className="main-popular-categories-cards" ref={sliderRef} onScroll={handleScroll}>
+            {popularCards.map((popularCard, idx) => (
+              <div className="main-popular-categories-card" key={idx}>
+                <a href="#" className="popular-categories-img">
+                  <img src={popularCard.img} alt="" className="popular-categories-img" />
+                </a>
+                <p>{popularCard.p}</p>
+              </div>
+            ))}
+          </div>
+
+          {showRight && (
+            <button className="slider-btn right" onClick={scrollRight}>▶</button>
+          )}
         </div>
-      ))}
-    </div>
-
-    {showRight && (
-      <button className="slider-btn right" onClick={scrollRight}>▶</button>
-    )}
-  </div>
-</section>
+      </section>
 
 
     </main>

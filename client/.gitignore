@@ -58,3 +58,5 @@ Thumbs.db
 
 # TypeScript
 *.tsbuildinfo
+
+echo "node_modules/" >> .gitignore

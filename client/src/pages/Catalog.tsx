@@ -12,7 +12,7 @@ export const Catalog: React.FC<Props> = ({ product }) => {
   const { addToCart } = useCart();
 
   return (
-    <div className="catalogPage">
+    <div className="catalog-page">
       <div style={{ border: "1px solid gray" }}>
         <h3>{product.name}</h3>
         <p>Цена: {product.price} ₽</p>

@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import Header from "./components/Header";
+import Footer from './components/Footer';
 import Main from './pages/Main';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
@@ -33,6 +34,7 @@ function App() {
             <Route path="/favorites" element={<Favorites />} />
             <Route path="/catalog" element={<HomePage />} />
           </Routes>
+          <Footer />
         </BrowserRouter>
       </div>
     </CartProvider>

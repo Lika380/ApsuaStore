@@ -364,8 +364,9 @@
   width: 17%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
+  gap: 5%;
 }
 
 .slider-btn {
@@ -391,12 +392,17 @@
 }
 
 .slider-btn {
-  width: 5%;
-  background: rgb(203, 202, 202, 0.2);
+  width: 4.1%;
+  background: rgba(34, 34, 34, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1% 0;
-  border: 1px solid rgb(203, 202, 202);
+  border: none;
   border-radius: 50%;
+}
+
+.popular-categories h2 {
+  margin-top: 7%;
+  margin-bottom: 3%;
 }
